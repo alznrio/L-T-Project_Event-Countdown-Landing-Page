@@ -1,0 +1,301 @@
+/* Base Reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  background: #121212;
+  color: #eee;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 1rem 1.25rem;
+}
+
+/* Header */
+.header {
+  background: #1f1f1f;
+  text-align: center;
+  padding: 3vh 1rem;
+}
+
+.event-title {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 3.5rem;
+  margin: 0;
+}
+
+.event-subtitle {
+  font-weight: 300;
+  font-size: 1.2rem;
+  margin-top: 0.3rem;
+  color: #bbb;
+}
+
+/* Countdown Section */
+.countdown-section {
+  background: #222;
+  height: 50vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+}
+
+.countdown-container {
+  display: flex;
+  gap: 2rem;
+}
+
+.countdown-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.countdown-number {
+  font-size: 6vw;
+  font-weight: 700;
+  color: #1ce1d9;
+  animation: pulse 2s infinite ease-in-out;
+  user-select: none;
+  min-width: 6ch;
+}
+
+.countdown-label {
+  margin-top: 0.25rem;
+  font-size: 1.2rem;
+  color: #ccc;
+}
+
+/* Pulse animation for countdown numbers */
+@keyframes pulse {
+  0%, 100% {
+    color: #1ce1d9;
+    text-shadow: 0 0 10px #1ce1d9;
+  }
+  50% {
+    color: #14a9a2;
+    text-shadow: 0 0 20px #14a9a2;
+  }
+}
+
+/* Speakers Section */
+.speakers-section {
+  margin-top: 4vh;
+  text-align: center;
+}
+
+.speakers-section h2 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  margin-bottom: 2rem;
+}
+
+.speakers-grid {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.speaker-card {
+  background: #1f1f1f;
+  padding: 1.5rem 1rem;
+  border-radius: 12px;
+  width: 180px;
+  box-shadow: 0 0 10px rgb(28 225 217 / 0.3);
+  transition: transform 0.3s ease;
+}
+
+.speaker-card:hover {
+  transform: translateY(-6px);
+}
+
+.speaker-card img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 0 auto 1rem auto;
+  border: 3px solid #1ce1d9;
+}
+
+.speaker-card h3 {
+  margin: 0.2rem 0;
+  font-weight: 600;
+}
+
+.speaker-card p {
+  font-weight: 300;
+  color: #aaa;
+  margin: 0;
+}
+
+/* Schedule Section */
+.schedule-section {
+  margin-top: 5vh;
+}
+
+.schedule-section h2 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+/* Timeline vertical tabs */
+.schedule-timeline {
+  max-width: 600px;
+  margin: 0 auto;
+  border-left: 3px solid #1ce1d9;
+  position: relative;
+}
+
+.timeline-item {
+  position: relative;
+  margin-left: 2rem;
+  margin-bottom: 2rem;
+}
+
+.timeline-item input[type="radio"] {
+  display: none;
+}
+
+.timeline-label {
+  display: inline-block;
+  background: #1f1f1f;
+  color: #ccc;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+  user-select: none;
+  position: relative;
+  z-index: 2;
+}
+
+.timeline-label:hover {
+  background-color: #1ce1d9;
+  color: #121212;
+}
+
+.timeline-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+  background: #222;
+  margin-top: 0.5rem;
+  padding: 0 1rem;
+  border-radius: 8px;
+  color: #bbb;
+}
+
+.timeline-item input[type="radio"]:checked ~ .timeline-content {
+  max-height: 500px; /* enough for content */
+  padding: 1rem;
+}
+
+.timeline-item input[type="radio"]:checked + .timeline-label {
+  background-color: #1ce1d9;
+  color: #121212;
+}
+
+/* Add to Calendar Section */
+.calendar-section {
+  margin: 5vh auto;
+  text-align: center;
+}
+
+.calendar-section h2 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+}
+
+.calendar-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.btn {
+  background-color: #1ce1d9;
+  color: #121212;
+  padding: 0.75rem 1.8rem;
+  font-weight: 600;
+  border-radius: 30px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+  user-select: none;
+}
+
+.btn:hover,
+.btn:focus {
+  background-color: #14a9a2;
+  outline: none;
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 1rem 0;
+  color: #555;
+  font-size: 0.9rem;
+  margin-top: auto;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .countdown-container {
+    flex-wrap: wrap;
+    gap: 1.2rem;
+  }
+
+  .countdown-number {
+    font-size: 12vw;
+  }
+
+  .speakers-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .speaker-card {
+    width: 90vw;
+    max-width: 300px;
+  }
+
+  .schedule-timeline {
+    max-width: 100%;
+    margin-left: 0;
+    border-left: none;
+  }
+
+  .timeline-item {
+    margin-left: 0;
+  }
+
+  .timeline-label {
+    display: block;
+    width: 100%;
+    border-radius: 8px;
+  }
+
+  .timeline-content {
+    padding-left: 1rem;
+  }
+}

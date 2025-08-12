@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Event Countdown - Launch 2025</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Roboto&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header class="header">
+    <div class="container">
+      <h1 class="event-title">Launch Conference 2025</h1>
+      <p class="event-subtitle">Innovate. Inspire. Impact.</p>
+    </div>
+  </header>
+
+  <section class="countdown-section">
+    <div class="container countdown-container" aria-label="Countdown to event">
+      <div class="countdown-item">
+        <span class="countdown-number" id="days">00</span>
+        <span class="countdown-label">Days</span>
+      </div>
+      <div class="countdown-item">
+        <span class="countdown-number" id="hours">00</span>
+        <span class="countdown-label">Hours</span>
+      </div>
+      <div class="countdown-item">
+        <span class="countdown-number" id="minutes">00</span>
+        <span class="countdown-label">Minutes</span>
+      </div>
+      <div class="countdown-item">
+        <span class="countdown-number" id="seconds">00</span>
+        <span class="countdown-label">Seconds</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="speakers-section container">
+    <h2>Meet the Speakers</h2>
+    <div class="speakers-grid">
+      <div class="speaker-card">
+        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sara Lee" />
+        <h3>Sara Lee</h3>
+        <p>CTO, Innovatech</p>
+      </div>
+      <div class="speaker-card">
+        <img src="https://randomuser.me/api/portraits/men/46.jpg" alt="Mark Johnson" />
+        <h3>Mark Johnson</h3>
+        <p>Founder, CodeCraft</p>
+      </div>
+      <div class="speaker-card">
+        <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Linda Park" />
+        <h3>Linda Park</h3>
+        <p>UX Designer, Creativa</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="schedule-section container">
+    <h2>Event Schedule</h2>
+    <div class="schedule-timeline">
+      <div class="timeline-item">
+        <input type="radio" id="day1" name="schedule" checked />
+        <label for="day1" class="timeline-label">Day 1</label>
+        <div class="timeline-content">
+          <ul>
+            <li>9:00 AM - Opening Keynote</li>
+            <li>10:30 AM - Tech Innovations Panel</li>
+            <li>12:00 PM - Lunch Break</li>
+            <li>1:00 PM - Workshop: AI Trends</li>
+          </ul>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <input type="radio" id="day2" name="schedule" />
+        <label for="day2" class="timeline-label">Day 2</label>
+        <div class="timeline-content">
+          <ul>
+            <li>9:00 AM - Morning Meditation</li>
+            <li>10:00 AM - Marketing Strategies</li>
+            <li>11:30 AM - Networking Session</li>
+            <li>2:00 PM - Closing Remarks</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="calendar-section container">
+    <h2>Add to Your Calendar</h2>
+    <div class="calendar-buttons">
+      <a href="#" class="btn">Google Calendar</a>
+      <a href="#" class="btn">Outlook</a>
+      <a href="#" class="btn">iCal</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <p>© 2025 Launch Conference. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Simple countdown logic to update numbers every second
+    const countdownDate = new Date('2025-12-01T09:00:00').getTime();
+
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const distance = countdownDate - now;
+
+      if (distance < 0) {
+        document.getElementById('days').textContent = '00';
+        document.getElementById('hours').textContent = '00';
+        document.getElementById('minutes').textContent = '00';
+        document.getElementById('seconds').textContent = '00';
+        return;
+      }
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      document.getElementById('days').textContent = days.toString().padStart(2, '0');
+      document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+      document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+      document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+    }
+
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+  </script>
+
+</body>
+</html>
